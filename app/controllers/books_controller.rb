@@ -35,7 +35,7 @@ rescue_from ActiveRecord::RecordInvalid, with: :book_unprocessable_entity
     end
 
     def book_params
-        params.require(:book).permit(:name, :bookname, :email, :description, :avatar, :password, :admin)
+        params.require(:book).permit(:title, :poster, :description, :price, :genre)
     end
 
     def book_not_found
