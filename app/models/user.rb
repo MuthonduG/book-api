@@ -1,9 +1,11 @@
 class User < ApplicationRecord
-validates: name, presence: true
-validates: username, presence: true
-validates: email, uniqueness: true
-validates: password, presence: true, length: { minimum: 8 }
+    has_secure_password
 
-has_many :favourites
-has_many :books, through: :favourites
+    validates: name, presence: true
+    validates: username, presence: true
+    validates: email, uniqueness: true
+    validates: password, presence: true, length: { minimum: 8 }
+
+    has_many :favourites
+    has_many :books, through: :favourites
 end
